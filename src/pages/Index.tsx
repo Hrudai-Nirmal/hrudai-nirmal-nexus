@@ -55,6 +55,17 @@ const Index = () => {
       {/* Decorative glow */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-glow animate-glow-pulse pointer-events-none z-0"></div>
 
+      {/* View Biodata Button */}
+      <div className="absolute top-4 right-4 z-20">
+        <Button
+          onClick={() => navigate("/biodata")}
+          variant="outline"
+          className="backdrop-blur-sm"
+        >
+          View Biodata
+        </Button>
+      </div>
+
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 py-16 min-h-screen flex flex-col items-center justify-center">
         <div className="max-w-5xl mx-auto text-center animate-fade-in">
