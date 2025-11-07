@@ -1,0 +1,338 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(180deg, hsl(220, 20%, 8%) 0%, hsl(220, 25%, 12%) 100%);
+    color: hsl(40, 15%, 95%);
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Landing Page */
+.landing-page {
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    margin-bottom: 4rem;
+    border-radius: 1.5rem;
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        rgba(220, 20%, 8%, 0.8),
+        rgba(220, 20%, 8%, 0.9)
+    ), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23222" width="1200" height="600"/></svg>');
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
+.hero-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        circle at 50% 50%,
+        hsla(45, 85%, 55%, 0.15) 0%,
+        transparent 70%
+    );
+    z-index: 1;
+    animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+}
+
+.biodata-button {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background: hsla(220, 18%, 12%, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid hsla(45, 85%, 55%, 0.3);
+    border-radius: 9999px;
+    color: hsl(45, 85%, 55%);
+    text-decoration: none;
+    font-weight: 500;
+    margin-bottom: 3rem;
+    transition: all 0.3s ease;
+}
+
+.biodata-button:hover {
+    background: hsla(45, 85%, 55%, 0.1);
+    border-color: hsl(45, 85%, 55%);
+    transform: translateY(-2px);
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, hsl(45, 85%, 55%) 0%, hsl(38, 75%, 45%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle {
+    font-size: clamp(1.25rem, 4vw, 2rem);
+    color: hsl(40, 8%, 65%);
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.tech-stack {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.tech-badge {
+    padding: 0.5rem 1.5rem;
+    background: hsla(220, 15%, 18%, 0.6);
+    border: 1px solid hsla(220, 15%, 18%, 1);
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.tech-badge:hover {
+    background: hsla(220, 15%, 18%, 1);
+    border-color: hsl(45, 85%, 55%);
+    transform: translateY(-2px);
+}
+
+/* Categories Section */
+.categories-section {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+/* Category Cards */
+.category-card {
+    background: hsl(220, 18%, 12%);
+    border: 1px solid hsl(220, 15%, 18%);
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.category-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        circle at top right,
+        var(--card-color, hsla(45, 85%, 55%, 0.05)),
+        transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.category-card:hover::before {
+    opacity: 1;
+}
+
+.category-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--card-border, hsl(45, 85%, 55%));
+    box-shadow: 0 20px 40px -10px var(--card-shadow, hsla(45, 85%, 55%, 0.3));
+}
+
+.card-gold {
+    --card-color: hsla(45, 85%, 55%, 0.08);
+    --card-border: hsl(45, 85%, 55%);
+    --card-shadow: hsla(45, 85%, 55%, 0.3);
+}
+
+.card-blue {
+    --card-color: hsla(210, 85%, 55%, 0.08);
+    --card-border: hsl(210, 85%, 55%);
+    --card-shadow: hsla(210, 85%, 55%, 0.3);
+}
+
+.card-green {
+    --card-color: hsla(150, 65%, 50%, 0.08);
+    --card-border: hsl(150, 65%, 50%);
+    --card-shadow: hsla(150, 65%, 50%, 0.3);
+}
+
+.card-purple {
+    --card-color: hsla(270, 75%, 60%, 0.08);
+    --card-border: hsl(270, 75%, 60%);
+    --card-shadow: hsla(270, 75%, 60%, 0.3);
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.card-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: hsl(40, 15%, 95%);
+}
+
+.card-description {
+    color: hsl(40, 8%, 65%);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.card-arrow {
+    font-size: 1.5rem;
+    color: hsl(45, 85%, 55%);
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.4s ease;
+}
+
+.category-card:hover .card-arrow {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Content Pages */
+.content-page {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background: hsl(220, 18%, 12%);
+    border: 1px solid hsl(220, 15%, 18%);
+    border-radius: 9999px;
+    color: hsl(45, 85%, 55%);
+    text-decoration: none;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    background: hsl(220, 15%, 18%);
+    border-color: hsl(45, 85%, 55%);
+    transform: translateY(-2px);
+}
+
+.page-title {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.page-description {
+    font-size: 1.25rem;
+    color: hsl(40, 8%, 65%);
+}
+
+.content-section {
+    background: hsl(220, 18%, 12%);
+    border: 1px solid hsl(220, 15%, 18%);
+    border-radius: 1.5rem;
+    padding: 3rem;
+    margin-bottom: 2rem;
+}
+
+.content-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: hsl(45, 85%, 55%);
+}
+
+.content-section p {
+    color: hsl(40, 8%, 65%);
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .landing-page {
+        padding: 1rem;
+    }
+
+    .hero-section {
+        padding: 3rem 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .categories-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .category-card {
+        padding: 2rem;
+    }
+
+    .content-page {
+        padding: 2rem 1rem;
+    }
+
+    .content-section {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .tech-stack {
+        gap: 0.5rem;
+    }
+
+    .tech-badge {
+        padding: 0.4rem 1rem;
+        font-size: 0.75rem;
+    }
+}
