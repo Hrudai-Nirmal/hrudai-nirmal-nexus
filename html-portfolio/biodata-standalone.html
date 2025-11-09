@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biodata - Hrudai Nirmal</title>
+    <meta name="description" content="Personal biodata and background information of Hrudai Nirmal">
+    <link rel="icon" href="data:,">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(180deg, hsl(220, 20%, 8%) 0%, hsl(220, 25%, 12%) 100%);
+            color: hsl(40, 15%, 95%);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Content Pages */
+        .content-page {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: hsl(220, 18%, 12%);
+            border: 1px solid hsl(220, 15%, 18%);
+            border-radius: 9999px;
+            color: hsl(45, 85%, 55%);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: hsl(220, 15%, 18%);
+            border-color: hsl(45, 85%, 55%);
+            transform: translateY(-2px);
+        }
+
+        .page-title {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .page-description {
+            font-size: 1.25rem;
+            color: hsl(40, 8%, 65%);
+        }
+
+        .content-section {
+            background: hsl(220, 18%, 12%);
+            border: 1px solid hsl(220, 15%, 18%);
+            border-radius: 1.5rem;
+            padding: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .content-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: hsl(45, 85%, 55%);
+        }
+
+        .content-section p {
+            color: hsl(40, 8%, 65%);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .content-section p strong {
+            color: hsl(40, 15%, 95%);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .content-page {
+                padding: 2rem 1rem;
+            }
+
+            .content-section {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="content-page">
+        <header class="page-header">
+            <a href="index.html" class="back-button">← Back to Home</a>
+            <h1 class="page-title">Biodata</h1>
+            <p class="page-description">Personal information and background</p>
+        </header>
+
+        <section class="content-section">
+            <h2>Personal Information</h2>
+            <p><strong>Name:</strong> Hrudai Nirmal</p>
+            <p><strong>Profession:</strong> Computer Science Engineer</p>
+            <p><strong>Specialization:</strong> Web Development, Game Design, Machine Learning</p>
+        </section>
+
+        <section class="content-section">
+            <h2>About Me</h2>
+            <p>
+                I am a passionate Computer Science Engineer with expertise in multiple domains including 
+                web development, game design, and machine learning. I thrive on creating innovative solutions 
+                and bringing creative ideas to life through technology.
+            </p>
+        </section>
+
+        <section class="content-section">
+            <h2>Technical Skills</h2>
+            <p><strong>Frontend:</strong> React, TypeScript, HTML5, CSS3, Tailwind CSS</p>
+            <p><strong>Backend:</strong> Node.js, Python, PHP, MySQL</p>
+            <p><strong>Game Development:</strong> Unity, C#, Game Design</p>
+            <p><strong>Machine Learning:</strong> Python, TensorFlow, Data Analysis</p>
+        </section>
+    </main>
+</body>
+</html>
