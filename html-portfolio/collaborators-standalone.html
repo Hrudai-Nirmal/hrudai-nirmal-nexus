@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Collaborators - Hrudai Nirmal | Let's Build Together</title>
+    <meta name="description" content="Explore collaboration opportunities with Hrudai Nirmal - Open source, hackathons, research, and mentorship in web development and game design">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+            color: #e5e5e5;
+            min-height: 100vh;
+            line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .animated-bg {
+            position: absolute;
+            opacity: 0.5;
+        }
+
+        .gradient-layer {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(15, 15, 15, 0.8), rgba(26, 26, 26, 0.8));
+        }
+
+        .bg-circle-1 {
+            top: 0;
+            left: 25%;
+            width: 24rem;
+            height: 24rem;
+            background: rgba(245, 158, 11, 0.1);
+            border-radius: 50%;
+            filter: blur(80px);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .bg-circle-2 {
+            bottom: 0;
+            right: 25%;
+            width: 24rem;
+            height: 24rem;
+            background: rgba(217, 119, 6, 0.1);
+            border-radius: 50%;
+            filter: blur(80px);
+            animation: float 6s ease-in-out infinite 3s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-30px); }
+        }
+
+        header {
+            background: rgba(26, 26, 26, 0.5);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: transparent;
+            border: none;
+            color: #e5e5e5;
+            cursor: pointer;
+            border-radius: 0.5rem;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .talk-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.625rem 1.5rem;
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            color: #f59e0b;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .talk-button:hover {
+            background: rgba(245, 158, 11, 0.2);
+            transform: translateY(-2px);
+        }
+
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .emoji-large {
+            font-size: 3.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .hero-text {
+            font-size: 1.25rem;
+            color: #a3a3a3;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        h3 {
+            font-size: 1.75rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .collab-types-section {
+            margin-bottom: 4rem;
+            animation: fadeIn 0.6s ease-out 0.2s backwards;
+        }
+
+        .collab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .collab-card {
+            background: rgba(26, 26, 26, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .collab-card:hover {
+            border-color: rgba(245, 158, 11, 0.5);
+            transform: scale(1.05);
+        }
+
+        .gradient-overlay {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .collab-card:hover .gradient-overlay {
+            opacity: 1;
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .icon-wrapper {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 0.5rem;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(217, 119, 6, 0.2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .collab-card:hover .icon-wrapper {
+            transform: scale(1.1);
+        }
+
+        .icon-wrapper svg {
+            width: 1.5rem;
+            height: 1.5rem;
+            color: #fff;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .collab-card:hover .card-title {
+            color: #f59e0b;
+        }
+
+        .card-description {
+            color: #a3a3a3;
+        }
+
+        .values-section {
+            margin-bottom: 4rem;
+            animation: fadeIn 0.6s ease-out 0.4s backwards;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .value-card {
+            background: rgba(26, 26, 26, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .value-title {
+            color: #f59e0b;
+            margin-bottom: 0.5rem;
+        }
+
+        .value-description {
+            font-size: 0.875rem;
+            color: #a3a3a3;
+        }
+
+        .skills-section {
+            margin-bottom: 4rem;
+            animation: fadeIn 0.6s ease-out 0.6s backwards;
+        }
+
+        .skills-card {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.4));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            border-radius: 0.75rem;
+            padding: 2rem;
+        }
+
+        .skills-title {
+            font-size: 1.75rem;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .skill-item {
+            text-align: center;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            background: rgba(115, 115, 115, 0.25);
+            transition: all 0.3s;
+        }
+
+        .skill-item:hover {
+            background: rgba(115, 115, 115, 0.35);
+        }
+
+        .skill-text {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #fff;
+        }
+
+        .ideal-section {
+            margin-bottom: 4rem;
+            animation: fadeIn 0.6s ease-out 0.8s backwards;
+        }
+
+        .ideal-card {
+            background: rgba(26, 26, 26, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+        }
+
+        .ideal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .ideal-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .ideal-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .ideal-title {
+            font-size: 1.125rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .ideal-description {
+            font-size: 0.875rem;
+            color: #a3a3a3;
+        }
+
+        .cta-section {
+            text-align: center;
+            animation: fadeIn 0.6s ease-out 1s backwards;
+        }
+
+        .cta-card {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.8), rgba(245, 158, 11, 0.05));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 0.75rem;
+            padding: 2.5rem 2rem;
+        }
+
+        .cta-title {
+            font-size: 1.75rem;
+            color: #fff;
+            margin-bottom: 0.75rem;
+        }
+
+        .cta-description {
+            color: #a3a3a3;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 2rem;
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            color: #f59e0b;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            font-size: 1.125rem;
+        }
+
+        .cta-button-primary:hover {
+            background: rgba(245, 158, 11, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .cta-button-secondary {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.875rem 2rem;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #e5e5e5;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            font-size: 1.125rem;
+        }
+
+        .cta-button-secondary:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .cta-button-ghost {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.875rem 2rem;
+            background: transparent;
+            border: none;
+            color: #a3a3a3;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            font-size: 1.125rem;
+        }
+
+        .cta-button-ghost:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: #e5e5e5;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .collab-grid, .values-grid, .skills-grid, .ideal-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-bg gradient-layer"></div>
+    <div class="animated-bg bg-circle-1"></div>
+    <div class="animated-bg bg-circle-2"></div>
+
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="back-button">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back
+            </a>
+            <a href="#" class="talk-button">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                </svg>
+                Let's Talk
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <div class="hero-section">
+            <div class="emoji-large">🤝</div>
+            <h1>Let's Build Something Incredible Together</h1>
+            <p class="hero-text">
+                I believe the best projects come from collaborative minds working towards a common goal. 
+                Let's combine our strengths and create something amazing.
+            </p>
+        </div>
+
+        <section class="collab-types-section">
+            <h2>How We Can Work Together</h2>
+            <div class="collab-grid">
+                <div class="collab-card">
+                    <div class="gradient-overlay" style="background: linear-gradient(135deg, rgba(217, 119, 6, 0.2), transparent);"></div>
+                    <div class="card-content">
+                        <div class="icon-wrapper">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <div class="card-title">Open Source Projects</div>
+                        <div class="card-description">Contributing to meaningful projects that make a difference</div>
+                    </div>
+                </div>
+
+                <div class="collab-card">
+                    <div class="gradient-overlay" style="background: linear-gradient(135deg, rgba(234, 179, 8, 0.2), transparent);"></div>
+                    <div class="card-content">
+                        <div class="icon-wrapper">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                                <line x1="3" y1="6" x2="21" y2="6"/>
+                                <path d="M16 10a4 4 0 0 1-8 0"/>
+                            </svg>
+                        </div>
+                        <div class="card-title">Hackathons & Jams</div>
+                        <div class="card-description">Building amazing things under pressure with awesome teams</div>
+                    </div>
+                </div>
+
+                <div class="collab-card">
+                    <div class="gradient-overlay" style="background: linear-gradient(135deg, rgba(249, 115, 22, 0.2), transparent);"></div>
+                    <div class="card-content">
+                        <div class="icon-wrapper">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/>
+                                <path d="M9 18h6"/>
+                                <path d="M10 22h4"/>
+                            </svg>
+                        </div>
+                        <div class="card-title">Research & Innovation</div>
+                        <div class="card-description">Exploring new technologies and pushing boundaries together</div>
+                    </div>
+                </div>
+
+                <div class="collab-card">
+                    <div class="gradient-overlay" style="background: linear-gradient(135deg, rgba(217, 119, 6, 0.2), transparent);"></div>
+                    <div class="card-content">
+                        <div class="icon-wrapper">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <circle cx="12" cy="12" r="6"/>
+                                <circle cx="12" cy="12" r="2"/>
+                            </svg>
+                        </div>
+                        <div class="card-title">Mentorship Exchange</div>
+                        <div class="card-description">Learning from each other and growing our skills</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="values-section">
+            <h2>What I Bring to the Table</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <h3 class="value-title">Transparency</h3>
+                    <p class="value-description">Open communication and honest feedback</p>
+                </div>
+                <div class="value-card">
+                    <h3 class="value-title">Quality</h3>
+                    <p class="value-description">Commitment to excellence in every line of code</p>
+                </div>
+                <div class="value-card">
+                    <h3 class="value-title">Innovation</h3>
+                    <p class="value-description">Always exploring new ideas and approaches</p>
+                </div>
+                <div class="value-card">
+                    <h3 class="value-title">Community</h3>
+                    <p class="value-description">Giving back and lifting others up</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="skills-section">
+            <div class="skills-card">
+                <h3 class="skills-title">My Toolkit</h3>
+                <div class="skills-grid">
+                    <div class="skill-item"><p class="skill-text">React & Node.js</p></div>
+                    <div class="skill-item"><p class="skill-text">Unreal Engine</p></div>
+                    <div class="skill-item"><p class="skill-text">Machine Learning</p></div>
+                    <div class="skill-item"><p class="skill-text">C++ & Python</p></div>
+                    <div class="skill-item"><p class="skill-text">Tailwind CSS</p></div>
+                    <div class="skill-item"><p class="skill-text">Game Design</p></div>
+                    <div class="skill-item"><p class="skill-text">Full-Stack Dev</p></div>
+                    <div class="skill-item"><p class="skill-text">Creative Coding</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="ideal-section">
+            <div class="ideal-card">
+                <h2>What Makes a Great Collaboration?</h2>
+                <div class="ideal-grid">
+                    <div class="ideal-item">
+                        <span class="ideal-emoji">💡</span>
+                        <h4 class="ideal-title">Shared Vision</h4>
+                        <p class="ideal-description">Aligned goals and mutual excitement for the project</p>
+                    </div>
+                    <div class="ideal-item">
+                        <span class="ideal-emoji">🔄</span>
+                        <h4 class="ideal-title">Open Communication</h4>
+                        <p class="ideal-description">Regular updates, feedback, and transparent discussions</p>
+                    </div>
+                    <div class="ideal-item">
+                        <span class="ideal-emoji">🎯</span>
+                        <h4 class="ideal-title">Complementary Skills</h4>
+                        <p class="ideal-description">Each person brings unique strengths to the team</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="cta-card">
+                <h3 class="cta-title">Ready to Create Something Amazing?</h3>
+                <p class="cta-description">
+                    Whether you have a specific project in mind or just want to explore possibilities, 
+                    I'd love to hear from you. Let's start the conversation!
+                </p>
+                <div class="cta-buttons">
+                    <a href="#" class="cta-button-primary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                        </svg>
+                        Send a Message
+                    </a>
+                    <a href="#" class="cta-button-secondary">Schedule a Meeting</a>
+                    <a href="#" class="cta-button-ghost">View GitHub</a>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
